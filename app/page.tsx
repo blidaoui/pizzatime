@@ -14,7 +14,6 @@ export default function Home() {
     localStorage.setItem("id",id.toString())
     router.push('/components/Boutiques');
   };
-
   return (
    <div>
     <ImgHeader/>
