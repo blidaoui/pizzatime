@@ -1,10 +1,9 @@
-/* styles.css */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
-.text1 {
+/*.text1 {
   margin-top: 22px;
   font-style:normal;
-}
-
+*/
+/*
 .topnav {
   overflow: hidden;
   }
@@ -56,7 +55,7 @@
 /* ****************************** */
 /* Your existing styles */
 
-.payment-icons {
+/*.payment-icons {
   display: flex;
   margin-top: 5px;
   margin-left: 15px;
@@ -71,7 +70,8 @@
 
 
 }
- 
+*/
+/* home*/
 .containers { 
   display: grid;
   font-size: 15px;
@@ -82,7 +82,8 @@
   padding-bottom: 5%;
   padding-top: 2%;
 }
-
+ */
+ 
 .text{
   padding-left: 5%;
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
@@ -95,7 +96,8 @@
   width: 100%;
 }
 
-/* **** CSS  PAGE DE BOUTIQUES **** */
+
+/* menu css */
 .containers1 { 
   display: grid;
   font-size: 15px;
@@ -109,8 +111,6 @@
   text-size-adjust: 3%;
   align-items: center;
   justify-content: center;
-  
-  
 }
 .title{
 font:bold;
@@ -118,9 +118,6 @@ font-size: x-large;
 text-decoration: solid;
 text-transform: uppercase;
 }
-
-
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -129,8 +126,6 @@ ul {
   word-spacing: 5px; 
   background-color: #f9cdad75;
 }
-
-
 li  {
   word-spacing: 5px; 
   display: flex;

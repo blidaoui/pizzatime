@@ -18,10 +18,10 @@ export default function Home() {
    <div>
     <ImgHeader/>
     <Navbar />
-     <div className="containers" role="button" >
+     <div className="container col-sm my-3 card  " role="button" style={{ width: "18rem" }} >
         {Object.values(card.shoplist).map((item: any, id: number) => (
-          <div key={id} onClick={()=>navigateToOtherPage(id)}>
-            <img src={item.image} alt={`Produit`} className="image" />
+          <div key={id} onClick={()=>navigateToOtherPage(id)} className="">
+            <img src={item.image} alt="Card image cap" className="card-img-top" />
             <p>{item.Company} </p>
             <p>
               {" "}
