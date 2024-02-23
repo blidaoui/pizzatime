@@ -15,19 +15,31 @@ export default function Home() {
     localStorage.setItem("id",id.toString())
     router.push('/components/Boutiques');
   };
+  const isShopOpen = () => {
+    const currentHour = new Date().getHours();
+    return currentHour >= 8 && currentHour < 18;
+  };
   return (
    <div>
     <ImgHeader/>
     <Navbar />
      <div className="container " role="button"  >
-      <Link href='/components/Boutiques'> 
+     
        <div className="row ">
         {Object.values(card.shoplist).map((item: any, id: number) => (
           <div key={id} onClick={()=>navigateToOtherPage(id)}className="col-sm-3 my-3" >
              <div className="card " style={{ width: "18rem" }} >
-            <img src={item.image} alt="Card image cap" className="card-img-top" />
+          <Link href='/components/Boutiques'>    <img src={item.image} alt="Card image cap" className="card-img-top" /> </Link>
             <div className="card-body">
             <p className="card-title">{item.Company} </p>
+            <p
+                style={{
+                  display: "inline",
+                  color: isShopOpen() ? "green" : "red",
+                }}
+              >
+                {isShopOpen() ? "Ouvert" : "Fermé"}
+              </p>
             <p>
               {" "}
               {item.Address},{item.PostalCode} {item.town}
@@ -36,7 +48,7 @@ export default function Home() {
           </div> </div></div>
         ))}
     </div>
-     </Link>
+    
       </div> 
        </div>   
   );

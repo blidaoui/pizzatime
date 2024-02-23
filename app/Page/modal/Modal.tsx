@@ -59,7 +59,7 @@ const App = ({ showModal, setShowModal }: any) => {
               <p> Aujourd hui</p>
             </div>
             <div>
-              <label htmlFor="timeInput">.</label>
+              <label htmlFor="timeInput"></label>
               <input
                 type="time"
                 id="timeInput"
@@ -86,6 +86,8 @@ const App = ({ showModal, setShowModal }: any) => {
 
         .modal-content {
           background-color: white;
+          align-items: center;
+          justify-content: center;
           padding: 20px;
           border-radius: 5px;
           width: 30%;

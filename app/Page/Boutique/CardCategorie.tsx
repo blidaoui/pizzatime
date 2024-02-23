@@ -19,9 +19,11 @@ function CardCategorie() {
   );
   return (
     <div className="container">
-      <div className="row">
+      <div className="row">  
         {categorieShop.map((value: any, key: number) => (
           <div className="col-sm my-3" key={null}>
+                       <h5 className="card-title">{value.title}</h5>
+
             <div className="card" style={{ width: "18rem" }}>
               <img
                 className="card-img-top"
@@ -32,9 +34,7 @@ function CardCategorie() {
                 }
                 alt="Card image cap"
               />
-              <div className="card-body">
-                <h5 className="card-title">{value.title}</h5>
-               
+              <div className="card-body"> 
 
                 <button
                   onClick={() => setShowModal(true)}

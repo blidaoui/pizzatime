@@ -1,20 +1,20 @@
 import { useState } from "react";
 import "@/app/Page/modal/modal.css";
 import { Button } from "@nextui-org/react";
-
+import "@/app/Page/modal/modal.css"
 const App = ({ showModal, setShowModal }: any) => {
   const toggleModal = () => {
     setShowModal(!showModal);
   };
   return (
-    <div className="modal1">
+    <div className="modal">
       {showModal && (
         <div className="modal">
           <div className="modal-content">
             <span className="close" onClick={toggleModal}>
               &times;
             </span>
-            <h1>Information utiles</h1>
+            <h2> Modes de retrait</h2>
             <Button className="button">valider</Button>
           </div>
         </div>
@@ -25,10 +25,10 @@ const App = ({ showModal, setShowModal }: any) => {
           align-items: center;
           justify-content: center;
           position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
+          top: 50%;
+          left: 50%;
+          width: 250%;
+          height: 250%;
         }
 
         .modal-content {
@@ -44,9 +44,7 @@ const App = ({ showModal, setShowModal }: any) => {
           background-color: red;
           width: 5%;
           height: 5%;
-        }
-        
-        
+        }  
       `}</style>
     </div>
   );
