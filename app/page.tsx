@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import ImgHeader from './components/ImgHeader';
 import Icons from './components/Icons/Icons';
 import { setId } from './components/store';
+import Link from 'next/link';
 
 export default function Home() {
   const router = useRouter();
@@ -18,21 +19,25 @@ export default function Home() {
    <div>
     <ImgHeader/>
     <Navbar />
-     <div className="container col-sm my-3 card  " role="button" style={{ width: "18rem" }} >
+     <div className="container " role="button"  >
+      <Link href='/components/Boutiques'> 
+       <div className="row ">
         {Object.values(card.shoplist).map((item: any, id: number) => (
-          <div key={id} onClick={()=>navigateToOtherPage(id)} className="">
+          <div key={id} onClick={()=>navigateToOtherPage(id)}className="col-sm-3 my-3" >
+             <div className="card " style={{ width: "18rem" }} >
             <img src={item.image} alt="Card image cap" className="card-img-top" />
-            <p>{item.Company} </p>
+            <div className="card-body">
+            <p className="card-title">{item.Company} </p>
             <p>
               {" "}
               {item.Address},{item.PostalCode} {item.town}
             </p>
             <Icons/>
-          </div>
+          </div> </div></div>
         ))}
-      </div>
-   
-   </div>
-   
+    </div>
+     </Link>
+      </div> 
+       </div>   
   );
 }

@@ -10,7 +10,7 @@
 
 
  .navigation {
-   position: fixed;
+   position: absolute;
    top: 20px;
    right: 20px;
    width: 120px;

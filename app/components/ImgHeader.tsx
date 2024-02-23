@@ -10,7 +10,7 @@ function ImgHeader() {
        src={img11}
        style={{
         width: '100%',
-        height: '200px',
+        height: '250px',
       }}
        className="hidden md:block"
          alt="pizza"/> 
