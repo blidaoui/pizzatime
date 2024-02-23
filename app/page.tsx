@@ -18,7 +18,7 @@ export default function Home() {
    <div>
     <ImgHeader/>
     <Navbar />
-<div className="containers">
+     <div className="containers" role="button" >
         {Object.values(card.shoplist).map((item: any, id: number) => (
           <div key={id} onClick={()=>navigateToOtherPage(id)}>
             <img src={item.image} alt={`Produit`} className="image" />

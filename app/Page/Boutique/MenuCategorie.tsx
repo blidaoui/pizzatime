@@ -1,26 +1,45 @@
-import { card } from '@/app/constants/constants'
-import { Card } from '@nextui-org/react'
-import React from 'react'
+import store from '@/app/components/store';
+import { card } from '@/app/constants/constants';
+import { Card } from '@nextui-org/react';
+import React, { useState } from 'react';
+import { useSnapshot } from 'valtio';
+import Modal from '../modal/Modal';
+
 function MenuCategorie() {
+  const [showModal, setShowModal] = useState(false);
+
+  const { id } = useSnapshot(store);
+  const categorieShop: any = Object.values(card.categories).filter((el: any) => el.shopid === id);
+
   return (
     <Card>
-    <div className="d-flex justify-content-between">
-    <div className='mt-2'>
-    <ul style={{backgroundColor  :"#FFFFFF"}}>
-      {Object.entries(card.categories) .slice(0, 10).map(([key, value] :any) => (
-        <li key={key}>{value.title}</li>
-      ))}
-    </ul>
-    </div>
-    <div className='d-flex align-items-center'>
-    <select className="max-w-xs nav-link mx-5"> 
-    {Object.entries(card.categories) .slice(10, Object.keys(card.categories).length).map(([key, value] :any) => (
-         <option key={key} value={value.title}> {value.title}</option>  
-      ))}
- </select> 
-  </div>
-  </div>
-  </Card>
-  )
+      <div className="d-flex justify-content-between" role="button">
+        <div className='mt-2'>
+          <ul style={{ backgroundColor: "#FFFFFF" }} onClick={() => setShowModal(true)}>
+            {categorieShop.slice(0, 10).map((value: any, index: number) => (
+              <li key={index} onClick={() => setShowModal(true)}>{value.title}</li>
+            ))}
+          </ul>
+        </div>
+        <div className='d-flex align-items-center '>
+          <select className="max-w-xs nav-link mx-5">
+            {categorieShop.slice(10, categorieShop.length).map((value: any, index: number) => (
+              <option key={index} value={value.title} onClick={() => setShowModal(true)}>{value.title}</option>
+            ))}
+          </select>
+          {showModal && (
+            <>
+              <div
+                className="modal-background"
+                onClick={() => setShowModal(false)}
+              />
+              <Modal setShowModal={setShowModal} showModal={showModal} />
+            </>
+          )}
+        </div>
+      </div>
+    </Card>
+  );
 }
-export default MenuCategorie
+
+export default MenuCategorie;

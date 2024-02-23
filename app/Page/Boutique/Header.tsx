@@ -4,7 +4,9 @@ import store from '@/app/components/store';
 import { card } from '@/app/constants/constants'
 import React from 'react'
 import { useSnapshot } from 'valtio/react';
+import ModalInfo from '../modal/ModalInfo';
 function Header() {
+    const [showModal, setShowModal] = React.useState(false);
     const {id}= useSnapshot(store)  
     const companyToShow:any = Object.values(card.shoplist)[id];
   return (
@@ -29,7 +31,9 @@ function Header() {
             {" "}
             {companyToShow.Address},{companyToShow.PostalCode} {companyToShow.town}   
           </p>
-          <a href=''>Informations utiles</a>
+          <p role="button" onClick={() => setShowModal(true)}>Informations utiles</p>
+          <ModalInfo setShowModal={setShowModal} showModal={showModal} />
+
             <div></div>
             <Icons/>        
         </div>
