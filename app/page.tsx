@@ -7,6 +7,7 @@ import ImgHeader from './components/ImgHeader';
 import Icons from './components/Icons/Icons';
 import { setId } from './components/store';
 import Link from 'next/link';
+import Header from './components/Navbar/Header';
 
 export default function Home() {
   const router = useRouter();
@@ -21,6 +22,7 @@ export default function Home() {
   };
   return (
    <div>
+     <Header/>
     <ImgHeader/>
     <Navbar />
      <div className="container " role="button"  >

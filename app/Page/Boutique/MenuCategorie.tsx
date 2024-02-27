@@ -13,20 +13,22 @@ function MenuCategorie() {
 
   return (
     <Card>
-      <div className="d-flex justify-content-between" role="button">
+      <div className="d-flex justify-content-between" >
         <div className='mt-2'>
-          <ul style={{ backgroundColor: "#FFFFFF" }} onClick={() => setShowModal(true)}>
+          <a onClick={() => setShowModal(true)}  role="button">
+          <ul style={{ backgroundColor: "#FFFFFF" }} >
             {categorieShop.slice(0, 10).map((value: any, index: number) => (
               <li key={index} onClick={() => setShowModal(true)}>{value.title}</li>
-            ))}
-          </ul>
+          ))}
+          </ul> </a>   
         </div>
         <div className='d-flex align-items-center '>
+        <a onClick={() => setShowModal(true)}  role="button">
           <select className="max-w-xs nav-link mx-5">
             {categorieShop.slice(10, categorieShop.length).map((value: any, index: number) => (
               <option key={index} value={value.title} onClick={() => setShowModal(true)}>{value.title}</option>
             ))}
-          </select>
+          </select>  </a>
           {showModal && (
             <>
               <div
@@ -36,7 +38,7 @@ function MenuCategorie() {
               <Modal setShowModal={setShowModal} showModal={showModal} />
             </>
           )}
-        </div>
+      </div>
       </div>
     </Card>
   );

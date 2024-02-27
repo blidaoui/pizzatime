@@ -99,6 +99,8 @@ const App = ({ showModal, setShowModal }: any) => {
           background-color: red;
           width: 5%;
           height: 5%;
+          left:20%
+          
         }
         
         
