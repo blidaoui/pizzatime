@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "@/app/Page/modal/modal.css";
 import { Button } from "@nextui-org/react";
 import "@/app/Page/modal/modal.css"

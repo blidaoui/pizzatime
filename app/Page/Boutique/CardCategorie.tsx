@@ -18,8 +18,8 @@ function CardCategorie() {
     categorieShop
   );
   return (
-    <div className="container">
-      <div className="row">  
+    <div className="container" >
+      <div className="row"  >  
         {categorieShop.map((value: any, key: number) => (
           <div className="col-sm my-3" key={null}>
                        <h5 className="card-title">{value.title}</h5>
