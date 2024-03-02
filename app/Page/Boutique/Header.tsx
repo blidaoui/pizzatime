@@ -1,22 +1,22 @@
+"use client"
+import React from "react";
+import { useSnapshot } from "valtio/react";
+import { Card } from "@nextui-org/react";
 import Icons from "@/app/components/Icons/Icons";
 import ImgHeader from "@/app/components/ImgHeader";
 import store from "@/app/components/store";
-import { card } from "@/app/constants/constants";
-import React from "react";
-import { useSnapshot } from "valtio/react";
 import ModalInfo from "../modal/ModalInfo";
-import { Card } from "@nextui-org/react";
+import { ListShop } from "@/app/const/ListShop";
 
 function Header() {
   const [showModal, setShowModal] = React.useState(false);
   const { id } = useSnapshot(store);
-  const companyToShow: any = Object.values(card.shoplist)[id];
+  const companyToShow: any = ListShop[id];
   return (
-    <div className="img" style={{ position: "relative" }}>
+    <div style={{ position: "relative" }}>
       <ImgHeader />
       <Card>  
         <div
-          className="containers"
           style={{
             position: "absolute",
             top: "50%",
@@ -32,21 +32,24 @@ function Header() {
             alignItems: "center",
           }}
         >
-          <p>{`${companyToShow.Company.replace(/\s/g, "")}`} </p>
+          {companyToShow && (
+  <>
+    <p>{`${companyToShow.Company.replace(/\s/g, "")}`} </p>
+    <p>
+      ouvert de {companyToShow.openingTime} à {companyToShow.closingTime}{" "}
+    </p>
           <p>
-            ouvert de {companyToShow.openingTime} à {companyToShow.closingTime}{" "}
-          </p>
-          <p>
-            {" "}
             {companyToShow.Address},{companyToShow.PostalCode}{" "}
             {companyToShow.town}
           </p>
-          <p role="button" onClick={() => setShowModal(true)}>
+          </>
+)}
+          <p className="" role="button" onClick={() => setShowModal(true)}>
             Informations utiles
           </p>
-          <ModalInfo setShowModal={setShowModal} showModal={showModal} />
           <Icons />
-        </div>
+          <ModalInfo setShowModal={setShowModal} showModal={showModal} />
+        </div> 
       </Card>
     </div>
   );

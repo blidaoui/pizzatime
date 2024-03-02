@@ -13,7 +13,8 @@ function ImgHeader() {
         height: '15rem',
       }}
        className="hidden md:block"
-         alt="pizza"/> 
+       alt="pizza"
+      /> 
      
     </div>
   )

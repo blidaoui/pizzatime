@@ -1,31 +1,25 @@
+import { Button } from "@nextui-org/react";
 import Image from "next/image";
 import moto from "@/app/image/moto.png";
 import panierrepas from "@/app/image/panierrepas.png";
-import { useState } from "react";
-import "@/app/Page/modal/modal.css";
-import { Button } from "@nextui-org/react";
+
 
 const App = ({ showModal, setShowModal }: any) => {
   const toggleModal = () => {
     setShowModal(!showModal);
   };
-  const [selectedTime, setSelectedTime] = useState("");
-
-  const handleTimeChange = (event: any) => {
-    setSelectedTime(event.target.value);
-  };
 
   return (
     <div className="modal1">
-      {showModal && (
-        <div className="modal">
+      {showModal && ( 
+      <div className="modal">
           <div className="modal-content">
             <span className="close" onClick={toggleModal}>
               &times;
-            </span>
-            <h2> Modes de retrait</h2>
+            </span> 
+            <h2 className="modal-title"> Modes de retrait</h2>
             <div style={{ display: "flex", alignItems: "center" }}>
-              <div className="container">
+              <div className="modal-body">
                 <a href="">
                   <Image
                     src={moto}
@@ -56,17 +50,19 @@ const App = ({ showModal, setShowModal }: any) => {
             </div>
             <div className="text">
               {" "}
-              <p> Aujourd hui</p>
+              <h5 className=" text-center  mb-3  "> Aujourd hui</h5>
             </div>
-            <div>
-              <label htmlFor="timeInput"></label>
-              <input
-                type="time"
-                id="timeInput"
-                className="timeInput"
-                value={selectedTime}
-                onChange={handleTimeChange}
-              />
+            <div id="liste_select">
+              <select
+                id="zoneSelect"
+                className="form-select form-select-lg mb-3 text-center "
+              >
+                <option selected id="1" value="20240229 181500">
+                  18h15
+                </option>
+                <option value="20240229 183000">18h30</option>
+                <option value="20240229 230000">23h00</option>
+              </select>
             </div>
             <Button className="button">valider</Button>
           </div>
@@ -83,30 +79,34 @@ const App = ({ showModal, setShowModal }: any) => {
           width: 100%;
           height: 100%;
         }
-
-        .modal-content {
-          background-color: white;
+        .modal-title{
           align-items: center;
           justify-content: center;
+          text-align:center;
+        }
+        .modal-body{
+          align-items: center;
+          justify-content: center;
+          text-align:center;
+        }
+        .modal-content {
+          background-color: white;
           padding: 20px;
           border-radius: 5px;
           width: 30%;
           height: 70%;
         }
         .close {
-          float: none; 
           cursor: pointer;
           background-color: red;
           width: 5%;
           height: 5%;
-          left:20%
-          
+          justify-content: center;
+          align-items: right;
         }
-        
-        
       `}</style>
     </div>
   );
 };
 
-export default App; 
+export default App;

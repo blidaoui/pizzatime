@@ -1,12 +1,10 @@
-import "@/app/Page/modal/modal.css";
 import { Button } from "@nextui-org/react";
-import "@/app/Page/modal/modal.css"
 const App = ({ showModal, setShowModal }: any) => {
   const toggleModal = () => {
     setShowModal(!showModal);
   };
   return (
-    <div className="modal">
+    <div className="modal1">
       {showModal && (
         <div className="modal">
           <div className="modal-content">
@@ -19,16 +17,16 @@ const App = ({ showModal, setShowModal }: any) => {
         </div>
       )}
       <style jsx>{`
-        .modal {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          width: 250%;
-          height: 250%;
-        }
+          .modal {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
 
         .modal-content {
           background-color: white;
