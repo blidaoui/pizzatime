@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import Image from "next/image";
-import i1 from "@/app/image/i1.jpg";
+import i1 from "@/public/image/i1.jpg";
 import DropDownMenu from "../DropDown/DropDownMenu";
 
 const HeaderNav = () => {

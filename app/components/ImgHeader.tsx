@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import img11 from '../image/img11.jpg'
+import img11 from '@/public/image/img11.jpg'
 
 function ImgHeader() {
   return (
