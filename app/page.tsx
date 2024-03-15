@@ -2,8 +2,8 @@
 import React from "react";
 import { useRouter } from "next/navigation"; 
 import Link from "next/link";
-import Navbar from "./components/Navbar";
-import ImgHeader from "./components/ImgHeader";
+import Navbar from "./components/Navbar/Navbar";
+import ImgHeader from "./components/imageHeader/ImgHeader";
 import Icons from "./components/Icons/Icons";
 import  { setId } from "./components/store";
 import Header from "./components/Navbar/Header";
@@ -67,6 +67,7 @@ export default function Home() {
             );
           })}
         </div>
+
       </div>
     </div>
   );

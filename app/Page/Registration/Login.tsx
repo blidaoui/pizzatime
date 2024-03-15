@@ -1,16 +1,51 @@
 "use client";
-import React from "react";
+import React, { SyntheticEvent, useState } from "react";
 import Registration from "./Registration";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Login = () => {
-  const [showRegistration, setShowRegistration] = React.useState(false);
-
   const handleSignUpClick = () => {
     setShowRegistration(true);
   };
+  const [showRegistration, setShowRegistration] = React.useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const listOfUser = async () => {
+    const response = await fetch("http://localhost:8000/backend");
+    const data: any = await response.json();
+    return data;
+  };
+  const Submit = async (e:SyntheticEvent) => {
+    // Prevent page reload
+    e.preventDefault();
+    let users = await listOfUser();
+    console.log({users});
+   
+
+    if (users.find((el: any) => el.email === email && el.password === password) !== undefined) {
+      toast.error(`verifier vos donnes!`, {
+        // position: toast.POSITION.TOP_CENTER,
+        autoClose: 2000,
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      
+      });
+    } else {
+      await fetch("http://localhost:8000/backend/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({  email, password }),
+      });
+    }
+
+  };
   return (
     <div>
-      <form className="form_main" action="">
+      <form className="form_main" action="" onSubmit={Submit}>
         {!showRegistration ? (
           <React.Fragment>
             {" "}
@@ -28,9 +63,11 @@ export const Login = () => {
               </svg>
               <input
                 placeholder="Username"
-                id="username"
+                id="email"
                 className="inputField"
                 type="text"
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
             <div className="inputContainer">
@@ -49,20 +86,24 @@ export const Login = () => {
                 id="password"
                 className="inputField"
                 type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </div>
-            <button id="button">Submit</button>
+            <button onClick={Submit} type="submit" id="button" >Submit</button>
             <div className="signupContainer">
               <p>Don't have any account?</p>
-              <button id="button" onClick={handleSignUpClick}>
+              <button id="button" type="submit" onClick={handleSignUpClick}>
                 Sign up
               </button>
+           
             </div>
           </React.Fragment>
         ) : (
           <Registration />
         )}
       </form>
+      <ToastContainer limit={1} /> 
     </div>
   );
 };

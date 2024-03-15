@@ -3,7 +3,7 @@ import React from "react";
 import { useSnapshot } from "valtio/react";
 import { Card } from "@nextui-org/react";
 import Icons from "@/app/components/Icons/Icons";
-import ImgHeader from "@/app/components/ImgHeader";
+import ImgHeader from "@/app/components/imageHeader/ImgHeader";
 import store from "@/app/components/store";
 import ModalInfo from "../modal/ModalInfo";
 import { ListShop } from "@/app/const/ListShop";

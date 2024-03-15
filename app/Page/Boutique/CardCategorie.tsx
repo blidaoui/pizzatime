@@ -15,13 +15,11 @@ function CardCategorie() {
 <div className="row row-cols-1 row-cols-md-4">
 {Object.entries(card.categories).map(([key, value]: any) => (
      <div className="col-sm my-3">
-     <div className="card" style={{ width: '18rem' }}>
-     <img className="card-img-top" src={value.image } alt="Card image cap" />
+     <div className="" style={{ width: '18rem' }}>
      <div className="card-body">
       <h5 className="card-title">{value.title}</h5> 
-      <a href="#" className="btn btn-primary" onClick={() => setShowModal(true)}>
-      commander
-      </a>
+      <img className="card-img-top" onClick={() => setShowModal(true)} src={value.image } alt="Card image cap" />
+
       {showModal ? (
                   <>
                     <div

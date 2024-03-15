@@ -1,5 +1,5 @@
+import { Login } from '@/app/Page/Registration/Login';
 import React from 'react';
-import { Login } from '../Registration/Login';
 
 function DropDownMenu(): React.JSX.Element {
 

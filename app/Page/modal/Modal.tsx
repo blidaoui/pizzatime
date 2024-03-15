@@ -1,7 +1,7 @@
 import { Button } from "@nextui-org/react";
 import Image from "next/image";
-import moto from "@/app/image/moto.png";
-import panierrepas from "@/app/image/panierrepas.png";
+import moto from"@/public/image/moto.png";
+import panierrepas from "@/public/image/panierrepas.png";
 
 
 const App = ({ showModal, setShowModal }: any) => {
