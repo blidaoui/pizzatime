@@ -9,6 +9,8 @@ import  { setId } from "./components/store";
 import Header from "./components/Navbar/Header";
 import { ListShop } from "./const/ListShop";
 
+
+
 export default function Home() {
   const router = useRouter();
   const isShopOpen = (id: number) => {
@@ -25,11 +27,12 @@ export default function Home() {
   };
 
   return (
-    <div >
+    <div  >
+       
       <Header />
       <ImgHeader />
       <Navbar />
-      <div className="container" role="button">
+      <div className="container" role="button" >
         <div className="row row-cols-1 row-cols-md-4">
           {Object.values(ListShop).map((item: any, index: number) => { 
             const isOpen = isShopOpen(index); 
@@ -67,8 +70,9 @@ export default function Home() {
             );
           })}
         </div>
-
       </div>
+     
     </div>
+ 
   );
 }

@@ -40,12 +40,13 @@ export const Login = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({  email, password }),
       });
+      console.log(listOfUser)
     }
 
   };
   return (
     <div>
-      <form className="form_main" action="" onSubmit={Submit}>
+      <form className="form_main" action="" >
         {!showRegistration ? (
           <React.Fragment>
             {" "}
@@ -93,7 +94,7 @@ export const Login = () => {
             <button onClick={Submit} type="submit" id="button" >Submit</button>
             <div className="signupContainer">
               <p>Don't have any account?</p>
-              <button id="button" type="submit" onClick={handleSignUpClick}>
+              <button id="button"  onClick={handleSignUpClick}>
                 Sign up
               </button>
            
@@ -102,8 +103,7 @@ export const Login = () => {
         ) : (
           <Registration />
         )}
-      </form>
-      <ToastContainer limit={1} /> 
+      </form> 
     </div>
   );
 };

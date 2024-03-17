@@ -2,12 +2,22 @@ import { Button } from "@nextui-org/react";
 import Image from "next/image";
 import moto from"@/public/image/moto.png";
 import panierrepas from "@/public/image/panierrepas.png";
+import Link from "next/link";
+import { useRouter } from "next/navigation"; 
+import { setId } from "@/app/components/store";
 
 
 const App = ({ showModal, setShowModal }: any) => {
+  const router = useRouter();
   const toggleModal = () => {
     setShowModal(!showModal);
   };
+  const navigateToOtherPage = () => {
+   
+    router.push("Page/Boutique/ItemCategorie");
+  };
+  
+
 
   return (
     <div className="modal1">
@@ -64,7 +74,8 @@ const App = ({ showModal, setShowModal }: any) => {
                 <option value="20240229 230000">23h00</option>
               </select>
             </div>
-            <Button className="button">valider</Button>
+           <a href="/Page/Boutique/ItemCategorie" ><Button onClick={ navigateToOtherPage}
+className="button" >valider</Button></a>
           </div>
         </div>
       )}

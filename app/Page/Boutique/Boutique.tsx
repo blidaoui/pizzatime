@@ -3,6 +3,7 @@ import Header from './Header'
 import MenuCategorie from './MenuCategorie'
 import CardCategorie from './CardCategorie'
 import HeaderNav from '@/app/components/Navbar/Header'
+import ItemCategorie from './ItemCategorie'
 
 function Boutique() {
   return (
@@ -10,6 +11,7 @@ function Boutique() {
       <HeaderNav/>
       <Header />
       <MenuCategorie />
+      <ItemCategorie/>
       <CardCategorie />
     </div>
   )
