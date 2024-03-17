@@ -4,15 +4,16 @@ import MenuCategorie from './MenuCategorie'
 import CardCategorie from './CardCategorie'
 import HeaderNav from '@/app/components/Navbar/Header'
 import ItemCategorie from './ItemCategorie'
+import HomeHeader from '@/app/components/Navbar/HomeHeader'
 
 function Boutique() {
   return (
     <div>
-      <HeaderNav/>
+      <HomeHeader/>
       <Header />
       <MenuCategorie />
-      <ItemCategorie/>
       <CardCategorie />
+      
     </div>
   )
 }

@@ -6,8 +6,8 @@ import Navbar from "./components/Navbar/Navbar";
 import ImgHeader from "./components/imageHeader/ImgHeader";
 import Icons from "./components/Icons/Icons";
 import  { setId } from "./components/store";
-import Header from "./components/Navbar/Header";
 import { ListShop } from "./const/ListShop";
+import HomeHeader from "./components/Navbar/HomeHeader";
 
 
 
@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <div  >
        
-      <Header />
+     <HomeHeader/>
       <ImgHeader />
       <Navbar />
       <div className="container" role="button" >

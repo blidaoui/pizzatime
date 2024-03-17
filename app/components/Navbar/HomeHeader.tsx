@@ -7,11 +7,8 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import "./header.css"
 import "../../globals.css"
-import Dropdownpanier from "../DropDown/Dropdownpanier";
 
-
-
-const HeaderNav = () => {
+const HomeHeader= () => {
   return (
     <div className="mt-3 mb-3">
             <ToastContainer limit={1} />      
@@ -33,8 +30,8 @@ const HeaderNav = () => {
               </div>
             </div>
           </div>
-          <div className="flex-container"><Dropdownpanier /> </div> 
-           {/* <DropDownMenu />  */}
+          <div className="flex-container"><DropDownMenu />  </div> 
+           {/*  */}
       
         </nav>
       </div>
@@ -42,4 +39,8 @@ const HeaderNav = () => {
   );
 };
 
-export default HeaderNav;
+export default HomeHeader;
+
+
+
+

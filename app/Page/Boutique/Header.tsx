@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { useSnapshot } from "valtio/react";
 import { Card } from "@nextui-org/react";
@@ -15,7 +15,7 @@ function Header() {
   return (
     <div style={{ position: "relative" }}>
       <ImgHeader />
-      <Card>  
+      <Card>
         <div
           style={{
             position: "absolute",
@@ -33,23 +33,24 @@ function Header() {
           }}
         >
           {companyToShow && (
-  <>
-    <p>{`${companyToShow.Company.replace(/\s/g, "")}`} </p>
-    <p>
-      ouvert de {companyToShow.openingTime} à {companyToShow.closingTime}{" "}
-    </p>
-          <p>
-            {companyToShow.Address},{companyToShow.PostalCode}{" "}
-            {companyToShow.town}
-          </p>
-          </>
-)}
+            <>
+              <p>{`${companyToShow.Company.replace(/\s/g, "")}`} </p>
+              <p>
+                ouvert de {companyToShow.openingTime} à{" "}
+                {companyToShow.closingTime}{" "}
+              </p>
+              <p>
+                {companyToShow.Address},{companyToShow.PostalCode}{" "}
+                {companyToShow.town}
+              </p>
+            </>
+          )}
           <p className="" role="button" onClick={() => setShowModal(true)}>
             Informations utiles
           </p>
           <Icons />
           <ModalInfo setShowModal={setShowModal} showModal={showModal} />
-        </div> 
+        </div>
       </Card>
     </div>
   );

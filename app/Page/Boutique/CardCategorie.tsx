@@ -1,26 +1,31 @@
-"use client"
-import React,{useState} from 'react'
-import { useSnapshot } from 'valtio';
-import store from '@/app/components/store';
-import { Listcard } from '@/app/const/Listcard';
-import Modal from '../modal/Modal';
+"use client";
+import React, { useState } from "react";
+import { useSnapshot } from "valtio";
+import store from "@/app/components/store";
+import { Listcard } from "@/app/const/Listcard";
+import Modal from "../modal/Modal";
 
 function CardCategorie() {
-  const [showModal, setShowModal] = useState(false); 
+  const [showModal, setShowModal] = useState(false);
 
-  const {id}= useSnapshot(store)  
-  let card = Listcard[id]; 
+  const { id } = useSnapshot(store);
+  let card = Listcard[id];
   return (
-<div className="container">
-<div className="row row-cols-1 row-cols-md-4">
-{Object.entries(card.categories).map(([key, value]: any) => (
-     <div className="col-sm my-3">
-     <div className="" style={{ width: '18rem' }}>
-     <div className="card-body">
-      <h5 className="card-title">{value.title}</h5> 
-      <img className="card-img-top" onClick={() => setShowModal(true)} src={value.image } alt="Card image cap" />
+    <div className="container">
+      <div className="row row-cols-1 row-cols-md-4">
+        {Object.entries(card.categories).map(([key, value]: any) => (
+          <div className="col-sm my-3">
+            <div className="" style={{ width: "18rem" }}>
+              <div className="card-body">
+                <h5 className="card-title">{value.title}</h5>
+                <img
+                  className="card-img-top"
+                  onClick={() => setShowModal(true)}
+                  src={value.image}
+                  alt="Card image cap"
+                />
 
-      {showModal ? (
+                {showModal ? (
                   <>
                     <div
                       className="modal-background"
@@ -29,11 +34,12 @@ function CardCategorie() {
                     <Modal setShowModal={setShowModal} showModal={showModal} />
                   </>
                 ) : null}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
-   </div>
-     </div> 
-))}
-</div>
-</div>
-)};
-export default CardCategorie
+  );
+}
+export default CardCategorie;

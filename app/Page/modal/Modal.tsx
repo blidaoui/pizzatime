@@ -13,10 +13,9 @@ const App = ({ showModal, setShowModal }: any) => {
     setShowModal(!showModal);
   };
   const navigateToOtherPage = () => {
-   
-    router.push("Page/Boutique/ItemCategorie");
-  };
   
+    router.push("/Page/ListProduit");
+  };
 
 
   return (
@@ -74,8 +73,7 @@ const App = ({ showModal, setShowModal }: any) => {
                 <option value="20240229 230000">23h00</option>
               </select>
             </div>
-           <a href="/Page/Boutique/ItemCategorie" ><Button onClick={ navigateToOtherPage}
-className="button" >valider</Button></a>
+           <Button onClick={ navigateToOtherPage} className="button" >valider</Button>
           </div>
         </div>
       )}
