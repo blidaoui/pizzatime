@@ -34,7 +34,6 @@ const HeaderNav = () => {
             </div>
           </div>
           <div className="flex-container"><Dropdownpanier /> </div> 
-           {/* <DropDownMenu />  */}
       
         </nav>
       </div>

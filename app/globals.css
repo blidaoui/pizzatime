@@ -48,15 +48,7 @@ li  {
   align-self: center;
  
 }
-/* .card-body{
-  width: 60%;
-  height: 60%;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  text-align: center;
-  align-self: center;
-} */
+
 
 .button {
   height: 40px;
@@ -97,13 +89,7 @@ align-items: center;
 justify-content: center;
 text-align: center;
 }
-/* .card-title{
-  align-items: center;
-  text-align: center;
-  align-self: center;
-  padding-top: 3%;
-  padding-bottom: 2%;
-} */
+
 
 .modal1{
   z-index:999;
@@ -117,12 +103,7 @@ text-align: center;
   padding: 30px 30px 30px 30px;
 }
 
-/* .nav {
-  font-size: 1em;
-  color: #2e2e2e;
-  font-weight: 100;
- align-items: center;
-} */
+
 
 .inputContainer {
   width: 100%;
@@ -222,6 +203,7 @@ text-align: center;
   padding: 8px 15px;
   border-radius: 20px;
 }
+/*****************************************************************************************/
  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
   *{
@@ -243,21 +225,7 @@ text-align: center;
     font-size: 1.8rem;
     cursor: pointer;
   } 
-/* header{
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-background-color:#fff ;
-box-shadow: 0 1px 4px hsl(0 4% 15% /10%);
-z-index: 100;
-}
 
-.logo{
-  font-size: 1.1rem;
-  color: var(--text-color);
-  font-weight: 400;
-}*/
 .card-title{
   font-size: 1.1rem;
   font-weight: 600 ;
@@ -373,13 +341,7 @@ font-weight: 600;
 .btn-buy:hover{
   background: var(--text-color);
 }
-/* .navb{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 3px 0;
-  font-weight: 100%;
-} */
+
 .flex-container {
   display: flex;
   justify-content: space-between;
