@@ -48,11 +48,15 @@ li  {
   align-self: center;
  
 }
-.card-body{
+/* .card-body{
+  width: 60%;
+  height: 60%;
+  align-items: center;
   justify-content: center;
+  align-content: center;
   text-align: center;
   align-self: center;
-}
+} */
 
 .button {
   height: 40px;
@@ -93,13 +97,13 @@ align-items: center;
 justify-content: center;
 text-align: center;
 }
-.card-title{
+/* .card-title{
   align-items: center;
   text-align: center;
   align-self: center;
   padding-top: 3%;
   padding-bottom: 2%;
-}
+} */
 
 .modal1{
   z-index:999;
@@ -379,4 +383,53 @@ font-weight: 600;
 .flex-container {
   display: flex;
   justify-content: space-between;
+}
+
+/* Style pour le carrousel */
+.carousel-item {
+  text-align: center;
+}
+
+.carousel-item img {
+  max-width: 50%;
+  height: 40%;
+}
+
+.card-body {
+  padding: 1.25rem;
+  width: 100%;
+  height: 60%;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card p {
+  margin-bottom: 0.5rem;
+}
+
+/* Styles pour les contrôles du carrousel */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100%;
+}
+
+.carousel-control-prev-icon:before,
+.carousel-control-next-icon:before {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 30px;
+}
+
+/* Style pour le texte de navigation */
+.carousel-indicators {
+  bottom: -25px;
 }

@@ -9,8 +9,6 @@ import  { setId } from "./components/store";
 import { ListShop } from "./const/ListShop";
 import HomeHeader from "./components/Navbar/HomeHeader";
 
-
-
 export default function Home() {
   const router = useRouter();
   const isShopOpen = (id: number) => {
@@ -27,52 +25,44 @@ export default function Home() {
   };
 
   return (
-    <div  >
-       
-     <HomeHeader/>
+    <div>
+      <HomeHeader/>
       <ImgHeader />
       <Navbar />
-      <div className="container" role="button" >
-        <div className="row row-cols-1 row-cols-md-4">
-          {Object.values(ListShop).map((item: any, index: number) => { 
-            const isOpen = isShopOpen(index); 
-            return (
-              <div
-                key={index} 
-                onClick={() => navigateToOtherPage(item.shopid)}
-                className="col-sm-3 my-3"
-              >
-                <div className="card" style={{ width: "18rem" }}>
-                  <Link href="/components/Boutiques">
-                    <img
-                      src={item.image}
-                      alt=""
-                      className="card-img-top"
-                    />
-                  </Link>
-                  <div className="card-body">
-                    <p className="card-title">{item.Company}</p>
-                    <p
-                      style={{
-                        display: "inline",
-                        color: isOpen ? "green" : "red",
-                      }}
-                    >
-                      {isOpen ? "Ouvert" : "Fermé"}
-                    </p>
-                    <p>
-                      {item.Address}, {item.PostalCode} {item.town}
-                    </p>
-                    <Icons />
+      <div className="container" role="button">
+        <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
+          <div className="carousel-inner">
+            {Object.values(ListShop).map((item: any, index: number) => {
+              const isOpen = isShopOpen(index);
+              return (
+                <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+                  <div className="card">
+                    <Link href="/components/Boutiques">
+                      <img src={item.image} alt=""  className="card-img-top"/>
+                    </Link>
+                    <div className="card-body">
+                      <p className="card-title">{item.Company}</p>
+                      <p style={{ display: "inline", color: isOpen ? "green" : "red" }}>
+                        {isOpen ? "Ouvert" : "Fermé"}
+                      </p>
+                      <p>{item.Address}, {item.PostalCode} {item.town}</p>
+                      <Icons />
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
-     
     </div>
- 
   );
 }

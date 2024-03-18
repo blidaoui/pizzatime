@@ -104,8 +104,7 @@ function ItemCategorie() {
                   <img
                     className="product-img"
                     src={value.image}
-                    alt="Card image cap"
-                  />
+                    alt="Card image cap"                  />
                   <span className="price">{value.price}</span>
                   <button
                     className="add-cart"
