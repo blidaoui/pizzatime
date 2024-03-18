@@ -39,6 +39,7 @@ function Dropdownpanier(): React.JSX.Element {
       });
     };
   }, []); // Utilisation d'un tableau vide comme dépendance pour n'exécuter l'effet qu'une seule fois
+  //quantity changes
   useEffect(() => {
     const quantityInputs = document.querySelectorAll(".cart-quantity"); // Utilisation de querySelectorAll pour obtenir tous les boutons avec la classe 'cart-remove'
 
@@ -54,6 +55,7 @@ function Dropdownpanier(): React.JSX.Element {
       });
     };
   }, []);
+
   function removeCartItem(event: any) {
     const buttonClicked = event.target;
     buttonClicked.parentElement?.remove(); // Suppression de l'élément parent du bouton (le cart-box)
@@ -137,24 +139,7 @@ function Dropdownpanier(): React.JSX.Element {
                 <div className="cart">
                   <h2 className="cart-title"> </h2>
                   <div className="cart-context">
-                    <div className="cart-box">
-                      <img src="" alt="" className="cart-img" />
-                      <div className="detail-box">
-                        <div className="cart-product-title"></div>
-
-                        <div className="cart-price">25$</div>
-                        <input
-                          defaultValue={1}
-                          type="number"
-                          className="cart-quantity"
-                        />
-                      </div>
-                      <img
-                        className="bx bxs-trash-alt cart-remove"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAOZJREFUSEvtlkEOAUEQRd/EyoojOIK4AM7AwoJwA4m4hQVHkLCRcIbhAuIIjsDKTugEmQw9NTUjaZLubVfV619VXd0BjlbgiIsGXADGQNFy2AswAa5pxGjAM2AoBJ0Co2+C+8A8TUCgA6wk27jiBhBKThn3m8D26fsz4AowyKhIcjOlOtoUR52rQFmKJuyfgMMnm6SuNvWo5wTv7nU1ffO2PDiaEp/qLH3mm+uVNX+d/HXys1o7RP5rgKyBllZizH4DtLXvcRdY5AT3gKUWbOxrj19ISXmAM2Dqu7f5aT70SnayuTPwDXrVNh/ho6CWAAAAAElFTkSuQmCC"
-                        alt="Remove"
-                      />
-                    </div>
+                    
                   </div>
 
                   <div className="total">
