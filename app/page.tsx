@@ -36,9 +36,9 @@ export default function Home() {
               const isOpen = isShopOpen(index);
               return (
                 <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                  <div className="card">
+                  <div className="card" style={{ width: "25rem" }}>
                     <Link href="/components/Boutiques">
-                      <img src={item.image} alt=""  className="card-img-top"/>
+                      <img src={item.image} alt="" className="card-img-top"/>
                     </Link>
                     <div className="card-body">
                       <p className="card-title">{item.Company}</p>

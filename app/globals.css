@@ -387,18 +387,24 @@ font-weight: 600;
 
 /* Style pour le carrousel */
 .carousel-item {
+  width: 100%;
   text-align: center;
 }
 
 .carousel-item img {
-  max-width: 50%;
-  height: 40%;
+  max-width: 90%;
+  height: 35%;
 }
 
+.card {
+ 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
 .card-body {
-  padding: 1.25rem;
-  width: 100%;
-  height: 60%;
+  flex: 1 1 auto;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  /* color: var(--bs-card-color); */
 }
 
 .card-title {
@@ -408,17 +414,19 @@ font-weight: 600;
 
 .card p {
   margin-bottom: 0.5rem;
+  
 }
 
 /* Styles pour les contrôles du carrousel */
 .carousel-control-prev,
 .carousel-control-next {
-  width: 5%;
+  width: 10%;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   height: 100%;
+  background: #000;
 }
 
 .carousel-control-prev-icon:before,
@@ -427,9 +435,59 @@ font-weight: 600;
   height: 30px;
   line-height: 30px;
   font-size: 30px;
+  
 }
 
 /* Style pour le texte de navigation */
 .carousel-indicators {
   bottom: -25px;
+ 
+}
+.carousel-control-next, .carousel-control-prev {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  padding: 0;
+  text-align: center;
+
+  border: 0;
+  opacity: 0.5;
+  transition: opacity .10s ease;
+}
+.card {
+  --bs-card-spacer-y: 1rem;
+  --bs-card-spacer-x: 1rem;
+  /* --bs-card-title-spacer-y: 0.5rem; */
+  --bs-card-title-color: ;
+  --bs-card-subtitle-color: ;
+  --bs-card-border-width: var(--bs-border-width);
+  --bs-card-border-color: var(--bs-border-color-translucent);
+  --bs-card-border-radius: var(--bs-border-radius);
+  --bs-card-box-shadow: ;
+  --bs-card-inner-border-radius: calc(var(--bs-border-radius) -(var(--bs-border-width)));
+  --bs-card-cap-padding-y: 0.5rem;
+  --bs-card-cap-padding-x: 1rem;
+  --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
+  --bs-card-cap-color: ;
+  --bs-card-height: ;
+  --bs-card-color: ;
+  /* --bs-card-bg: var(--bs-body-bg); */
+  --bs-card-img-overlay-padding: 1rem;
+  --bs-card-group-margin: 0.75rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: var(--bs-card-height);
+  color: var(--bs-body-color);
+  word-wrap: break-word;
+  /* background-color: var(--bs-card-bg); */
+  /* background-clip: border-box; */
+  /* border: var(--bs-card-border-width) solid var(--bs-card-border-color); */
+  /* border-radius: var(--bs-card-border-radius); */
 }
