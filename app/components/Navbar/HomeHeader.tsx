@@ -7,8 +7,9 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 const HomeHeader= () => {
+
   return (
-    <div className="mt-3 mb-3">
+    <div className="mt-4 mb-4">
             <ToastContainer limit={1} />      
       <div>
         <nav className="">

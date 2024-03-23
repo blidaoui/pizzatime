@@ -46,7 +46,7 @@ export default function Home() {
                         {isOpen ? "Ouvert" : "Fermé"}
                       </p>
                       <p>{item.Address}, {item.PostalCode} {item.town}</p>
-                      <Icons />
+                       <Icons />
                     </div>
                   </div>
                 </div>

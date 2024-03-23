@@ -3,13 +3,12 @@ import Header from './Header'
 import MenuCategorie from './MenuCategorie'
 import CardCategorie from './CardCategorie'
 import HeaderNav from '@/app/components/Navbar/Headerpanier'
-import ItemCategorie from './ItemCategorie'
 import HomeHeader from '@/app/components/Navbar/HomeHeader'
 
 function Boutique() {
   return (
     <div>
-      <HomeHeader/>
+      <a href='/'><HomeHeader/></a>
       <Header />
       <MenuCategorie />
       <CardCategorie />

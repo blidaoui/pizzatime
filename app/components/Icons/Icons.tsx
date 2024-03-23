@@ -2,7 +2,7 @@ import React from 'react'
 
 function Icons() {
   return (
-    <div>  
+    <div className='d-flex icon'>  
     <img
       src="https://static.vecteezy.com/ti/vecteur-libre/p1/32222460-en-especes-paiement-vecteur-icone-vectoriel.jpg"
       style={{ height: "40px", backgroundColor: "#24A451" }}

@@ -6,7 +6,7 @@ import HeaderNav from '@/app/components/Navbar/Headerpanier'
  function ListProduit() {
   return (
     <div>
-       <HeaderNav/>
+      <a href='/'><HeaderNav/></a> 
         <Header />
         <MenuCategorie />
         <ItemCategorie/>
