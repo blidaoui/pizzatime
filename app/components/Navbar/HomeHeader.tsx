@@ -5,8 +5,6 @@ import i1 from "@/public/image/i1.jpg";
 import DropDownMenu from "../DropDown/DropDownMenu"; 
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import "./header.css"
-import "../../globals.css"
 
 const HomeHeader= () => {
   return (

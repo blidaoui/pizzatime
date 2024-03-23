@@ -9,6 +9,15 @@ const Registration = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const validateEmail = (email: string) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+  const validatePhoneNumber = (phoneNumber: any) => {
+    const re = /^\d{9}$/;
+    return re.test(phoneNumber);
+  };
+ 
   const listOfUser = async () => {
     const response = await fetch("http://localhost:8000/backend");
     const data: any = await response.json();
@@ -19,6 +28,27 @@ const Registration = () => {
     e.preventDefault();
     let users = await listOfUser();
     console.log({users});
+    if (!validateEmail(email)) {
+      toast.error(`Veuillez saisir une adresse e-mail valide!`, {
+        autoClose: 2000,
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+      return;
+    }
+  
+    if (!validatePhoneNumber(tele)) {
+      toast.error(`Veuillez saisir un numéro de téléphone valide (9 chiffres)!`, {
+        autoClose: 2000,
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+      return;
+    }
     
     if (users.find((el: any) => el.email === email) !== undefined) {
       toast.error(`email used!`, {
@@ -30,13 +60,21 @@ const Registration = () => {
         draggable: true,
       });
     } else {
+      toast.success(`compte crée avec succes`, {
+        // position: toast.POSITION.TOP_CENTER,
+        autoClose: 2000,
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      
+      });
       await fetch("http://localhost:8000/backend/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nom, prenom, tele, email, password }),
       });
     }
-
   };
 
   return (
@@ -69,6 +107,7 @@ const Registration = () => {
           <input
             placeholder="Téléphone"
             id="Téléphone"
+            value={tele}
             className="inputField"
             type="integer"
             required
@@ -77,10 +116,11 @@ const Registration = () => {
         </div>
         <div className="inputContainer">
           <input
-            placeholder="saisissez votre e-mail"
+            placeholder="nom@mail.com"
             id="email"
             className="inputField"
             type="email"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />

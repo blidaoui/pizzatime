@@ -1,5 +1,5 @@
-"use client";
-import React, { ChangeEvent, useEffect, useState } from "react"; // Import de useEffect pour l'utilisation de hooks
+import React, { useEffect } from "react";
+
 function Dropdownpanier(): React.JSX.Element {
   useEffect(() => {
     const cartIcon = document.querySelector(".cart-icon");
@@ -12,7 +12,7 @@ function Dropdownpanier(): React.JSX.Element {
       });
 
       closecart.addEventListener("click", () => {
-        cart.classList.add("active");
+        cart.classList.remove("active");
       });
     }
 
@@ -22,43 +22,42 @@ function Dropdownpanier(): React.JSX.Element {
         cartIcon.removeEventListener("click", () => {
           cart.classList.add("active");
         });
+        closecart.removeEventListener("click", () => {
+          cart.classList.remove("active");
+        });
       }
     };
   }, []);
 
   useEffect(() => {
-    const removeCartButtons = document.querySelectorAll(".cart-remove"); // Utilisation de querySelectorAll pour obtenir tous les boutons avec la classe 'cart-remove'
+    const removeCartButtons = document.querySelectorAll(".cart-remove");
 
     removeCartButtons.forEach((button) => {
-      button.addEventListener("click", removeCartItem); // Ajout d'un écouteur d'événements 'click' à chaque bouton
+      button.addEventListener("click", removeCartItem);
     });
     return () => {
-      // Nettoyage des écouteurs d'événements lors du démontage du composant
       removeCartButtons.forEach((button) => {
         button.removeEventListener("click", removeCartItem);
       });
     };
-  }, []); // Utilisation d'un tableau vide comme dépendance pour n'exécuter l'effet qu'une seule fois
-  //quantity changes
+  }, []);
+
   useEffect(() => {
-    const quantityInputs = document.querySelectorAll(".cart-quantity"); // Utilisation de querySelectorAll pour obtenir tous les boutons avec la classe 'cart-remove'
+    const quantityInputs = document.querySelectorAll(".cart-quantity");
 
     quantityInputs.forEach((input) => {
-      // var input=quantityInputs[i];
       input.addEventListener("change", quantityChanged);
-      // Ajout d'un écouteur d'événements 'click' à chaque bouton
     });
     return () => {
-      // Nettoyage des écouteurs d'événements lors du démontage du composant
       quantityInputs.forEach((input) => {
-        input.addEventListener("change", quantityChanged);
+        input.removeEventListener("change", quantityChanged);
       });
     };
   }, []);
 
   function removeCartItem(event: any) {
     const buttonClicked = event.target;
-    buttonClicked.parentElement?.remove(); // Suppression de l'élément parent du bouton (le cart-box)
+    buttonClicked.parentElement?.remove();
     updatetotal();
   }
 
@@ -80,12 +79,11 @@ function Dropdownpanier(): React.JSX.Element {
       var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
       var price = parseFloat(priceElement.innerHTML.replace("$", ""));
       var quantity = parseInt((quantityElement as HTMLInputElement).value);
-      total = total + price * quantity;
-      total = Math.round(total * 100) / 100;
+      total += price * quantity;
     }
     var totalPriceElement = document.getElementsByClassName("total-price")[0];
     if (totalPriceElement) {
-      totalPriceElement.innerHTML = `$${total.toFixed(2)}`; // Affichage du total avec 2 décimales
+      totalPriceElement.innerHTML = `$${total.toFixed(2)}`;
     }
   }
 
@@ -106,16 +104,7 @@ function Dropdownpanier(): React.JSX.Element {
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAXxJREFUSEvt1r9LVlEcx/GX4JbQ6hShUG4Z0qZig2OBW0jg/+AQJE5CY+i/ENLgIghCi1BUW0I4BWKie+DiavgcOY883e7tfk8Ij8Nzt3PO53ze9/uDe79D+vQM9Ynrf8DDeIyp/NL7+I6LkiBKwEn7Gq9wtwI5wxo2ovAS8CZethivYzkCj4IX8T4bnmbzz3k9h7e4l9fz2GuDR8E/MYaU0gf4VTEe7WTjCHfwFTM3AR7PpslrFW8aTNP+Cn7nHjj/FzwS8TS+ZJNn2G0wfN7p9p189gSp2xufCDjV8GN2eIpPDW5R3dX1KngEB7mebWUqOT/GI1ynvwpOTdHt1hLjiHa2p2R/Rdybrnc4wX0sZefuXh2oTte790eZqhHX1Slau6K7txocqV+TpjFbkYgH4JIMDFJ9/bkdNFf0KxVtsNvfXBP4EQ2nUPcQh907dYPAduefvFBo2ibfwoteUR047aUxZrJmUGgDVM/T/PUNH6oHkdGnFBbS9w18CQsNax/K6ElAAAAAAElFTkSuQmCC"
           />
         </button>
-        {/* <button
-            className="navbar-toggler ml-3 "
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button> */}
+     
         <div
           className="offcanvas offcanvas-end"
           id="offcanvasNavbar"
@@ -144,7 +133,7 @@ function Dropdownpanier(): React.JSX.Element {
 
                   <div className="total">
                     <div className="total-title">total:</div>
-                    <div className="total-price">0 $</div>
+                    <div className="total-price"></div>
                   </div>
                   <button type="button" className="btn-buy">
                     Buy now

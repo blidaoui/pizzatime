@@ -2,6 +2,8 @@ import { Login } from "@/app/Page/Registration/Login";
 import React from "react";
 
 function DropDownMenu(): React.JSX.Element {
+  const [showRegistration, setShowRegistration] = React.useState(false);
+
   return (
     <nav className="navbar mt-4 mb-3 mx-5 position-absolute fixed-top ">
       <div className="container-fluid">
@@ -28,10 +30,11 @@ function DropDownMenu(): React.JSX.Element {
               className="btn-close"
               data-bs-dismiss="offcanvas"
               aria-label="Close"
+              onClick={()=>setShowRegistration(false)}
             ></button>
           </div>
           <div className="offcanvas-body">
-            <Login />
+            <Login setShowRegistration={setShowRegistration} showRegistration={showRegistration}/>
           </div>
         </div>
       </div>

@@ -88,7 +88,6 @@ function ItemCategorie() {
         <div class="product-title">${title}</div>
         <div class="cart-price">${price}</div>
         <input
-          defaultValue="1"
           type="number"
           class="cart-quantity"
         />
@@ -214,7 +213,7 @@ function ItemCategorie() {
                             <div className="cart-context"></div>
                             <div className="total">
                               <div className="total-title">total:</div>
-                              <div className="total-price">0 $</div>
+                              <div className="total-price"></div>
                             </div>
                             <button type="button" className="btn-buy">
                               Buy now
